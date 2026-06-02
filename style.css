@@ -27,10 +27,23 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.5);
     transform: translateY(0);
     transition: transform 0.3s ease;
+
+    /* 🛠️ DUA BARIS TAMBAHAN BIAR BISA DIGESER (SCROLL) 🛠️ */
+    max-height: 85vh;   /* Membatasi tinggi kartu agar tidak meluber keluar layar HP */
+    overflow-y: auto;   /* Memunculkan scroll internal otomatis saat teks kejutan muncul */
 }
 
 .card:hover {
     transform: translateY(-5px);
+}
+
+/* Biar scrollbar di dalam kartu terlihat sangat rapi dan estetik */
+.card::-webkit-scrollbar {
+    width: 6px;
+}
+.card::-webkit-scrollbar-thumb {
+    background: #ff85a2;
+    border-radius: 10px;
 }
 
 .photo-frame {
@@ -118,6 +131,7 @@ p {
     50% { transform: translateY(-50vh) scale(1.1) rotate(10deg); }
     100% { transform: translateY(-120vh) scale(1) rotate(-10deg); opacity: 0; }
 }
+
 /* Efek Hujan Hati (Animasi Jatuh) */
 .heart-pop {
     position: absolute;
@@ -125,7 +139,7 @@ p {
     font-size: 24px;
     z-index: 99;
     user-select: none;
-    pointer-events: none; /* Biar tidak mengganggu klik di web */
+    pointer-events: none;
     animation: fall linear forwards;
 }
 
