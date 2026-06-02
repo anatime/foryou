@@ -1,27 +1,30 @@
 document.getElementById('btnKejutan').addEventListener('click', function() {
     const musik = document.getElementById('myAudio');
     
-    // Memutar musik saat tombol diklik
+    // 1. Memutar musik saat tombol diklik
     if (musik) {
         musik.play().catch(error => {
             console.log("Musik gagal otomatis berputar karena aturan browser, tapi tetap lanjut!");
         });
     }
 
-    // Jalankan efek hujan hati
+    // 2. Jalankan efek hujan hati (tetap aktif!)
     createHearts();
 
-    // Memunculkan pesan kejutan (bisa berupa voucher/janji manis)
+    // 3. SEMBUNYIKAN tampilan pantun awal
+    const tampilanAwal = document.getElementById('tampilan-awal');
+    if (tampilanAwal) {
+        tampilanAwal.style.display = 'none';
+    }
+
+    // 4. MUNCULKAN pesan kejutan, ayat, foto, dan tanda tangan Princes Anaaa
     const pesanRahasia = document.getElementById('special-message');
     if (pesanRahasia) {
-        pesanRahasia.classList.toggle('hidden');
+        pesanRahasia.classList.remove('hidden');
     }
-    
-    // Mengubah teks tombol agar lebih interaktif
-    this.textContent = 'Click for more love ❤️❤️';
 });
 
-// Fungsi untuk membuat animasi hati berjatuhan
+// Fungsi untuk membuat animasi hati berjatuhan (TETAP SAMA & TETAP JALAN)
 function createHearts() {
     for (let i = 0; i < 30; i++) {
         const heart = document.createElement('div');
